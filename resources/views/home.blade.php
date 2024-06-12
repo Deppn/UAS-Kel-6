@@ -83,7 +83,7 @@
                             </div>
                             <!-- Product actions-->
                             <div class="card-footer pt-3 border-top-0 bg-transparent">
-                                <div class=""><a class="btn btn-outline-dark mt-auto rounded-pill" href="#">Add to cart</a></div>
+                                <div class=""><a class="btn btn-outline-dark mt-auto rounded-pill px-4" href="#">Add to cart</a></div>
                             </div>
                         </div>
                     </div>
