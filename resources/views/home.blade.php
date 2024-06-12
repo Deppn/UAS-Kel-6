@@ -87,6 +87,33 @@
                             </div>
                         </div>
                     </div>
+                    <div class="col mb-5">
+                        <div class="h-90">
+                            <!-- Product image-->
+                            <img class="card-img-top pt-3s" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
+                            <!-- Product details-->
+                            <div class="card-body pt-3">
+                                <div class="">
+                                    <!-- Product name-->
+                                    <h5 class="fw-bolder">Special New Item</h5>
+                                    <!-- Product reviews-->
+                                    <div class="d-flex justify-content-left small text-warning mb-2">
+                                        <div class="bi-star-fill"></div>
+                                        <div class="bi-star-fill"></div>
+                                        <div class="bi-star-fill"></div>
+                                        <div class="bi-star-fill"></div>
+                                        <div class="bi-star-fill"></div>
+                                    </div>
+                                    <!-- Product price-->
+                                    $10.00
+                                </div>
+                            </div>
+                            <!-- Product actions-->
+                            <div class="card-footer pt-3 border-top-0 bg-transparent">
+                                <div class=""><a class="btn btn-outline-dark mt-auto rounded-pill px-4" href="#">Add to cart</a></div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
