@@ -12,7 +12,7 @@
  */
 :root {
   --bs-blue: #0d6efd;
-  --bs-indigo: #6610f2;
+  --bs-indigo: #6A6CB8;
   --bs-purple: #6f42c1;
   --bs-pink: #d63384;
   --bs-red: #dc3545;
@@ -89,6 +89,10 @@
   :root {
     scroll-behavior: smooth;
   }
+}
+
+header{
+  background-color: var(--bs-indigo);
 }
 
 body {
