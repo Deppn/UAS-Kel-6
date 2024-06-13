@@ -15,7 +15,7 @@
     </head>
     <body>
         <!-- Navigation-->
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <nav class="navbar navbar-expand-lg navbar-light">
             <div class="container px-4 px-lg-5">
                 <a class="navbar-brand" href="#!">AMBATUSHOP</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
@@ -45,7 +45,7 @@
 
         <!-- Header-->
         <header class="">
-            <div class="container px-4 py-5 px-lg-5 d-flex align-items-center">
+            <div class="container d-flex align-items-center">
                 <div class="text-star text-white">
                     <h1 class="display-4 fw-bolder">Grab Upto 50% Off<br>On Selected Items</h1>
                     <p class="lead fw-normal text-white-50 mb-0">Limited Time Offers</p>
