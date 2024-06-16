@@ -16,7 +16,7 @@
     <body>
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-light">
-            <div class="container px-4 px-lg-5">
+            <div class="container px-0">
                 <a class="navbar-brand" href="#!">AMBATUSHOP</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -45,17 +45,19 @@
 
         <!-- Header-->
         <header class="">
-            <div class="container d-flex align-items-center">
+            <div class="container d-flex justify-content-around align-items-center">
                 <div class="text-star text-white">
                     <h1 class="display-4 fw-bolder">Grab Upto 50% Off<br>On Selected Items</h1>
-                    <p class="lead fw-normal text-white-50 mb-0">Limited Time Offers</p>
-                    <button type="button" class="btn btn-dark">Dark</button>
+                    <p class="lead fw-normal text-white-50 mb-0">Limited Time Offers Only</p>
+                    <button type="button" class="btn btn-purple text-white px-4 py-3 mt-3">SHOP NOW</button>
                 </div>
+                <img class="position-relative headerphoto" style="height: 420px"src="assets/headerphoto.png" alt="headerphoto">
             </div>
         </header>
 
         <!-- Section-->
         <section class="py-5">
+            <div class="titleproduct">Products that may interest you</div>
             <div class="container px-4 px-lg-5 mt-5">
                 <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
                     <div class="col mb-5">
@@ -83,13 +85,13 @@
                                 </div>
                             </div>
                             <!-- Product actions-->
-                            <div class="card-footer pt-3 border-top-0 bg-transparent">
+                            <div class="card-footer pt-2 border-top-0 bg-transparent">
                                 <div class=""><a class="btn btn-outline-dark mt-auto rounded-pill px-4" href="#">Add to cart</a></div>
                             </div>
                         </div>
                     </div>
-                    <div class="col mb-5">
-                        <div class="h-90">
+                    <div class="col mb-5 mt-4">
+                        <div class="h-100">
                             <!-- Product image-->
                             <img class="card-img-top pt-3s" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
                             <!-- Product details-->
@@ -110,7 +112,7 @@
                                 </div>
                             </div>
                             <!-- Product actions-->
-                            <div class="card-footer pt-3 border-top-0 bg-transparent">
+                            <div class="card-footer pt-2 border-top-0 bg-transparent">
                                 <div class=""><a class="btn btn-outline-dark mt-auto rounded-pill px-4" href="#">Add to cart</a></div>
                             </div>
                         </div>

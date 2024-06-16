@@ -12,8 +12,8 @@
  */
 :root {
     --bs-blue: #0d6efd;
-    --bs-indigo: #6a6db8e0;
-    --bs-purple: #6f42c1;
+    --bs-indigo: rgba(106, 108, 184, 91%);
+    --bs-purple: rgba(88, 91, 178, 91%);
     --bs-pink: #d63384;
     --bs-red: #dc3545;
     --bs-orange: #fd7e14;
@@ -105,9 +105,17 @@ header {
 
 header .container {
     background-color: var(--bs-indigo);
-    height: 400px;
+    height: 420px;
     border-radius: 6px;
     padding: 200px 100px;
+}
+
+.display-4 {
+    text-shadow: 1px 1px 3px black;
+}
+
+.btn-purple {
+    background-color: var(--bs-purple) !important;
 }
 
 body {
@@ -570,13 +578,24 @@ progress {
 }
 
 .display-4 {
-    font-size: calc(1.475rem + 2.7vw);
+    font-size: calc(1rem + 2.5vw);
     font-weight: 300;
     line-height: 1.2;
 }
-@media (min-width: 1200px) {
+@media (max-width: 1200px) {
     .display-4 {
-        font-size: 3.5rem;
+        font-size: 2.7rem;
+    }
+    header .container {
+        height: 370px;
+    }
+    .headerphoto {
+        height: 400px !important;
+    }
+}
+@media (max-width: 800px) {
+    .headerphoto {
+        display: none;
     }
 }
 
@@ -3902,7 +3921,7 @@ fieldset:disabled .btn {
     align-items: center;
     justify-content: space-between;
     padding: var(--bs-navbar-padding-y) var(--bs-navbar-padding-x);
-    height:100px;
+    height: 100px;
     background-color: #fff;
 }
 .navbar > .container,
