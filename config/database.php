@@ -86,7 +86,7 @@ return [
             'port' => env('DB_PORT', '5432'),
             'database' => env('DB_DATABASE', 'uasbackend'),
             'username' => env('DB_USERNAME', 'postges'),
-            'password' => env('DB_PASSWORD', 'b6d8265a'),
+            'password' => env('DB_PASSWORD', 'jalsson30191609'),
             'charset' => env('DB_CHARSET', 'utf8'),
             'prefix' => '',
             'prefix_indexes' => true,
