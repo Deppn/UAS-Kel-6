@@ -1,7 +1,9 @@
 <?php
 use App\Http\Controllers\Auth\AuthController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\productController;
+use App\Http\Controllers\Products\ProductController;
+
+Route::resource('products', ProductController::class);
 
 Route::get('/', function () {
     return view('home');
