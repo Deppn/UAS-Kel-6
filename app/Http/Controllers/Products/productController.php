@@ -1,85 +1,66 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Products;
 
 use App\Models\Product;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
-class productController extends Controller
+class ProductController extends Controller
 {
-    // Menampilkan list products
     public function index()
     {
         $products = Product::all();
-        return response()->json($products);
+        return view('products.index', compact('products'));
     }
 
-    
     public function create()
     {
-        //
+        return view('products.create');
     }
 
-    // Menampilkan produk yang baru di CREATE dalam storage.
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required|string|max:255',
-            'description' => 'nullable|string',
-            'price' => 'required|numeric|min:0',
-            'stock' => 'required|integer|min:0',
+            'name' => 'required',
+            'description' => 'required',
+            'price' => 'required|numeric',
+            'stock' => 'required|integer',
         ]);
 
-        $product = Product::create([
-            'name' => $request->name,
-            'description' => $request->description,
-            'price' => $request->price,
-            'stock' => $request->stock,
-        ]);
+        Product::create($request->all());
 
-        return response()->json($product, 201);
+        return redirect()->route('products.index')->with('success', 'Product created successfully.');
     }
 
-    // Menampilkan product yang dipillih
-    public function show($id)
+    public function show(Product $product)
     {
-        $product = Product::findOrFail($id);
-        return response()->json($product);
+        return view('products.show', compact('product'));
     }
 
-    
-    public function edit($id)
+    public function edit(Product $product)
     {
-        //
+        return view('products.edit', compact('product'));
     }
 
-    // Mengupdate specified product dalam storage
-    public function update(Request $request, $id)
+    public function update(Request $request, Product $product)
     {
         $request->validate([
-            'name' => 'required|string|max:255',
-            'description' => 'nullable|string',
-            'price' => 'required|numeric|min:0',
-            'stock' => 'required|integer|min:0',
+            'name' => 'required',
+            'description' => 'required',
+            'price' => 'required|numeric',
+            'stock' => 'required|integer',
         ]);
 
-        $product = Product::findOrFail($id);
-        $product->update([
-            'name' => $request->name,
-            'description' => $request->description,
-            'price' => $request->price,
-            'stock' => $request->stock,
-        ]);
+        $product->update($request->all());
 
-        return response()->json($product);
+        return redirect()->route('products.index')->with('success', 'Product updated successfully.');
     }
 
-    // Men DELETE product yang dipilih dari storage
-    public function destroy($id)
+    public function destroy(Product $product)
     {
-        $product = Product::findOrFail($id);
         $product->delete();
 
-        return response()->json(['message' => 'Product has beeen deleted successfully']);
+        return redirect()->route('products.index')->with('success', 'Product deleted successfully.');
     }
 }
