@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Keranjang Belanja</title>
+    <title>Your Cart</title>
 </head>
 <body>
-    <h1>Keranjang Belanja Anda</h1>
-    <p>Ini adalah halaman keranjang belanja.</p>
+    <h1>Cart</h1>
+    <p>-list of products here-</p>
 </body>
 </html>
