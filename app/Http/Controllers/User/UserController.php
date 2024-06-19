@@ -5,6 +5,7 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\User\UpdateUserRequest;
 use App\Models\User;
+use App\Models\Menu;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -64,6 +65,54 @@ class UserController extends Controller
 
         return redirect()->route('home')->with('success', 'Akun berhasil dihapus');
     }
-}
+     
+     public function listMenus()
+     {
+         $menus = Menu::all();
+         return view('user.list_menus', compact('menus'));
+     }
+ 
+     public function showAddMenuForm()
+     {
+         return view('user.add_menu');
+     }
+ 
+     public function addMenu(Request $request)
+     {
+         $request->validate([
+             'name' => 'required|string|max:255',
+             'url' => 'required|string|max:255',
+         ]);
+ 
+         Menu::create($request->only('name', 'url'));
+ 
+         return redirect()->route('user.list-menus')->with('success', 'Menu berhasil ditambahkan');
+     }
+ 
+     public function showEditMenuForm(Menu $menu)
+     {
+         return view('user.edit_menu', compact('menu'));
+     }
+ 
+     public function editMenu(Request $request, Menu $menu)
+     {
+         $request->validate([
+             'name' => 'required|string|max:255',
+             'url' => 'required|string|max:255',
+         ]);
+ 
+         $menu->update($request->only('name', 'url'));
+ 
+         return redirect()->route('user.list-menus')->with('success', 'Menu berhasil diubah');
+     }
+ 
+     public function deleteMenu(Menu $menu)
+     {
+         $menu->delete();
+ 
+         return redirect()->route('user.list-menus')->with('success', 'Menu berhasil dihapus');
+     }
+ }
+
 
 
