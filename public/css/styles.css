@@ -105,9 +105,16 @@ header {
 
 header .container {
     background-color: var(--bs-indigo);
-    height: 420px;
+    height: 430px;
     border-radius: 6px;
     padding: 200px 100px;
+}
+
+.ube {
+    font-family: "Pacifico", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    color: var(--bs-indigo) !important;
 }
 
 .display-4 {
@@ -116,6 +123,12 @@ header .container {
 
 .btn-purple {
     background-color: var(--bs-purple) !important;
+}
+
+.icon-rtl {
+    padding-left: 27px !important;
+    background: url("../assets/search.svg") no-repeat 3% center;
+    background-size: 17px;
 }
 
 body {
@@ -3251,6 +3264,23 @@ fieldset:disabled .btn {
     --bs-gradient: none;
 }
 
+.btn-outline-purple {
+    --bs-btn-color: var(--bs-indigo);
+    --bs-btn-border-color: var(--bs-indigo);
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-bg: var(--bs-indigo);
+    --bs-btn-hover-border-color: var(--bs-indigo);
+    --bs-btn-focus-shadow-rgb: 33, 37, 41;
+    --bs-btn-active-color: #fff;
+    --bs-btn-active-bg: var(--bs-indigo);
+    --bs-btn-active-border-color: var(--bs-indigo);
+    --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+    --bs-btn-disabled-color: var(--bs-indigo);
+    --bs-btn-disabled-bg: transparent;
+    --bs-btn-disabled-border-color: var(--bs-indigo);
+    --bs-gradient: none;
+}
+
 .btn-outline-dark {
     --bs-btn-color: #212529;
     --bs-btn-border-color: #212529;
@@ -3921,7 +3951,7 @@ fieldset:disabled .btn {
     align-items: center;
     justify-content: space-between;
     padding: var(--bs-navbar-padding-y) var(--bs-navbar-padding-x);
-    height: 100px;
+    height: 120px;
     background-color: #fff;
 }
 .navbar > .container,
@@ -8548,6 +8578,14 @@ fieldset:disabled .btn {
 .bg-dark {
     --bs-bg-opacity: 1;
     background-color: rgba(var(--bs-dark-rgb), var(--bs-bg-opacity)) !important;
+}
+
+.bg-purple {
+    background-color: var(--bs-purple) !important;
+}
+
+.bg-indigo {
+    background-color: var(--bs-indigo) !important;
 }
 
 .bg-black {
