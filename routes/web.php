@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Admin\DashboardController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\homeController;
 
 Route::get('/', function () {
     return view('home');
@@ -10,7 +11,7 @@ Route::get('/', function () {
 
 Route::get('/dashboard', function () {
     return view('dashboard');
-})->middleware(['auth', 'role:user,admin'])->name('dashboard');
+})->middleware(['auth', 'role:user'])->name('dashboard');
 
 Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::controller(DashboardController::class)->group(function () {
@@ -27,5 +28,7 @@ Route::middleware('auth')->group(function () {
 Route::get('/carts', function () {
     return view('carts');
 })->name('carts');
+
+
 
 require __DIR__.'/auth.php';
