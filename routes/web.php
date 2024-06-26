@@ -21,6 +21,10 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
 });
 Route::get('/view_category', [AdminController::class, 'view_category'])->name('admin.category');
 Route::post('add_category', [AdminController::class, 'add_category'])->name('add_category');
+Route::get('delete_category/{id}', [AdminController::class, 'delete_category'])->name('delete_category');
+Route::get('edit_category/{id}', [AdminController::class, 'edit_category'])->name('edit_category');
+Route::post('update_category/{id}', [AdminController::class, 'update_category'])->name('update_category');
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
