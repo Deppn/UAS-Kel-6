@@ -27,7 +27,7 @@
                             </div>
                             <!-- Product actions-->
                             <div class="card-footer pt-2 border-top-0 bg-transparent">
-                                <div class=""><a class="btn btn-outline-purple mt-auto rounded-pill px-4" href="#">Add to cart</a></div>
+                                <div class=""><a class="btn btn-outline-purple mt-auto rounded-pill px-4" href="{{url('add_cart', $product->id)}}">Add to cart</a></div>
                             </div>
                         </div>
                     </div>

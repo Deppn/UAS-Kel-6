@@ -32,6 +32,7 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::get('/cart', [AdminController::class, 'Cart']);
+Route::get('add_cart/{id}', [homeController::class,'add_cart'])->middleware(['auth','verified']);
 Route::post('add-to-cart', [AdminController::class, 'addToCart'])->name('products.addToCart');
 Route::delete('/delete-cart-item', [AdminController::class, 'deleteItem'])->name('delete.cart.item');
 
