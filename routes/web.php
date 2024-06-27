@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\DashboardController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\homeController;
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\ProductController;
 
 Route::get('/', function () {
     return view('home');
@@ -32,10 +33,10 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('/carts', function () {
-    return view('carts');
-})->name('carts');
+Route::get('/cart', [ProductController::class, 'Cart']);
+Route::post('add-to-cart', [ProductController::class, 'addToCart'])->name('products.addToCart');
+Route::delete('/delete-cart-item', [ProductController::class, 'deleteItem'])->name('delete.cart.item');
 
-
+Route::resource('products', productController::class);
 
 require __DIR__.'/auth.php';
