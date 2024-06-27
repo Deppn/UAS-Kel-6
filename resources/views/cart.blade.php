@@ -16,7 +16,7 @@
         @foreach($cart as $item)
             @php
                 $product = $item->product;
-                $subtotal = $product->price * $item->quantity;
+                $subtotal = $product->price * $product->quantity;
                 $total += $subtotal;
             @endphp
             <tr rowId="{{ $item->product_id }}">
@@ -31,7 +31,7 @@
                     </div>
                 </td>
                 <td data-th="Price">${{ $product->price }}</td>
-                <td data-th="Quantity">{{ $item->quantity }}</td>
+                <td data-th="Quantity">{{ $product->quantity }}</td>
                 <td data-th="Subtotal" class="text-center">${{ $subtotal }}</td>
                 <td class="actions">
                     <a class="btn btn-outline-danger btn-sm delete-item">Delete</a>
@@ -42,7 +42,7 @@
     <tfoot>
         <tr>
             <td colspan="5" class="text-right">
-                <a href="{{ url('/') }}" class="btn btn-primary"><i class="fa fa-angle-left"></i> Continue Shopping</a>
+                <a href="{{ url('/') }}" class="btn btn-primary"><i class="fa fa-angle-left"></i> Back</a>
                 <button class="btn btn-danger">Checkout</button>
             </td>
         </tr>
