@@ -73,6 +73,7 @@ class AdminController extends Controller
     public function store(Request $request)
     {
         $request->validate([
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'name' => 'required',
             'description' => 'required',
             'price' => 'required|numeric',
@@ -97,6 +98,7 @@ class AdminController extends Controller
     public function update(Request $request, Product $product)
     {
         $request->validate([
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'name' => 'required',
             'description' => 'required',
             'price' => 'required|numeric',
