@@ -35,6 +35,7 @@
                         <button class="btn btn-outline-purple px-3" type="submit">
                             <i class="bi-cart-fill me-1"></i>
                             Cart
+                            {{$count}}
                         </button>
                     </form>
 

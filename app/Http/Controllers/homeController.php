@@ -15,13 +15,19 @@ class homeController extends Controller
     public function index()
     {
         $products = Product::all(); // Fetch all products from the database
-        return view('home.index', compact('products')); // Pass the products to the view
+        $user = Auth::user();
+        $userid = $user->id;
+        $count = Cart::where('user_id', $userid)->count();
+        return view('home.index', compact('products', 'count')); // Pass the products to the view
     }
     
     public function login_home()
     {
         $products = Product::all(); // Fetch all products from the database
-        return view('home.index', compact('products')); // Pass the products to the view
+        $user = Auth::user();
+        $userid = $user->id;
+        $count = Cart::where('user_id', $userid)->count();
+        return view('home.index', compact('products', 'count')); // Pass the products to the view
     }
 
     public function add_cart($id) {

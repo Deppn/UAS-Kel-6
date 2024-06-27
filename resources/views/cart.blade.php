@@ -14,7 +14,6 @@
         @php $total = 0 @endphp
         @if(session('cart'))
             @foreach(session('cart') as $id => $item)
-                
                 <tr rowId="{{ $id }}">
                     <td data-th="Product">
                         <div class="row">
@@ -25,7 +24,6 @@
                         </div>
                     </td>
                     <td data-th="Price">${{ $item['price'] }}</td>
-                   
                     <td data-th="Subtotal" class="text-center">${{ $item['price'] * $item['quantity'] }}</td>
                     <td class="actions">
                         <a class="btn btn-outline-danger btn-sm delete-item">Delete</a>
