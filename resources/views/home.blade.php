@@ -28,7 +28,7 @@
                         <div class="d-flex align-items-center ms-3">
                             <i class="bi bi-person-fill"></i>
                             <li class="nav-item"><a class="nav-link" href="/login">Login</a></li>
-                            <li class="nav-item"><a class="nav-link" href="/registration">Register</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/register">Register</a></li>
                         </div>
                     </ul>
                     <form class="d-inline-flex ms-3" action="/cart" method="get">
