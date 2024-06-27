@@ -41,6 +41,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::delete('/delete-cart-item', [AdminController::class, 'deleteItem'])->name('delete.cart.item');
 });
 
+Route::get('add_cart/{id}',[homeController::class,'add_cart'])->middleware(['auth', 'verified']);
 
 
 require __DIR__.'/auth.php';

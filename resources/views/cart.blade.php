@@ -40,7 +40,7 @@
     <tfoot>
         <tr>
             <td colspan="5" class="text-right">
-                <a href="{{ url('/movies-list') }}" class="btn btn-primary"><i class="fa fa-angle-left"></i> Continue Shopping</a>
+                <a href="{{ url('/') }}" class="btn btn-primary"><i class="fa fa-angle-left"></i> Continue Shopping</a>
                 <button class="btn btn-danger">Checkout</button>
             </td>
         </tr>
