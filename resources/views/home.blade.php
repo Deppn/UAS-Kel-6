@@ -31,12 +31,13 @@
                             <li class="nav-item"><a class="nav-link" href="/registration">Register</a></li>
                         </div>
                     </ul>
-                    <form class="d-inline-flex ms-3" action="{{ url('carts') }}" method="get">
+                    <form class="d-inline-flex ms-3" action="/cart" method="get">
                         <button class="btn btn-outline-purple px-3" type="submit">
                             <i class="bi-cart-fill me-1"></i>
                             Cart
                         </button>
                     </form>
+
                 </div>
             </div>
         </nav>

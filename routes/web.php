@@ -1,15 +1,20 @@
 <?php
-use App\Http\Controllers\Auth\AuthController;
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Products\ProductController;
-use App\Http\Controllers\User\UserController;
-use App\Http\Controllers\CartController;
 
-Route::resource('products', ProductController::class);
+use App\Http\Controllers\AuthController;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\UserController;
 
 Route::get('/', function () {
     return view('home');
 });
+
+use App\Http\Controllers\MovieController;
+
+Route::get('/shopping', [ProductController::class, 'index']);  
+Route::get('/cart', [ProductController::class, 'Cart']);
+Route::post('add-to-cart', [ProductController::class, 'addToCart'])->name('products.addToCart');
+Route::delete('/delete-cart-item', [ProductController::class, 'deleteItem'])->name('delete.cart.item');
 
 Route::get('login', [AuthController::class, 'index'])->name('login');
 Route::post('post-login', [AuthController::class, 'postLogin'])->name('login.post'); 
@@ -18,12 +23,3 @@ Route::post('post-registration', [AuthController::class, 'postRegistration'])->n
 Route::get('dashboard', [AuthController::class, 'dashboard']); 
 Route::post('logout', [AuthController::class, 'logout'])->name('logout');
 Route::resource('products', productController::class);
-Route::post('/login/change-password', [UserController::class, 'changePassword'])->name('login.changePassword');
-Route::post('/login/change-name', [UserController::class, 'changeName'])->name('login.changeName');
-Route::post('/login/delete', [UserController::class, 'deleteUser'])->name('login.delete');
-
-
-Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
-Route::post('/cart/add/{product}', [CartController::class, 'add'])->name('cart.add');
-Route::post('/cart/remove/{product}', [CartController::class, 'remove'])->name('cart.remove');
-Route::post('/cart/update/{product}', [CartController::class, 'update'])->name('cart.update');
