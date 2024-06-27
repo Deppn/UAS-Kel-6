@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\Product;
+use App\Models\Cart;
 
 class AdminController extends Controller
 { 
@@ -130,57 +131,60 @@ class AdminController extends Controller
 
     }
     public function Cart()
-    {
-        return view('cart');
-    }
-    public function addToCart(Request $request)
-    {
-        $productId = $request->input('product_id');
-        $quantity = $request->input('quantity', 1);
-        $cartItemId = $request->input('cart_item_id');
+{
+    $userId = auth()->id();
+    $cart = Cart::with('product')->where('user_id', $userId)->get();
+    return view('cart', compact('cart'));
+}
 
-        $product = Product::find($productId);
+public function addToCart(Request $request)
+{
+    $userId = auth()->id();
+    $productId = $request->input('product_id');
+    $quantity = $request->input('quantity', 1);
 
-        if (!$product) {
-            return response()->json(['error' => 'Product not found'], 404);
-        }
+    $product = Product::find($productId);
 
-        $cart = session()->get('cart', []);
-
-        if (isset($cart[$productId])) {
-            // Update quantity if product is already in the cart
-            $cart[$productId]['quantity'] += $quantity;
-        } else {
-            // Add new item to the cart
-            $cart[$productId] = [
-                'id' => $product->id,
-                'name' => $product->name,
-                'price' => $product->price,
-                'quantity' => $quantity,
-                'poster' => $product->poster,
-            ];
-        }
-
-        session()->put('cart', $cart);
-
-        // Calculate the total quantity
-        $totalQuantity = 0;
-        foreach ($cart as $item) {
-            $totalQuantity += $item['quantity'];
-        }
-        return response()->json(['message' => 'Cart updated', 'cartCount' => $totalQuantity], 200);
+    if (!$product) {
+        return response()->json(['error' => 'Product not found'], 404);
     }
 
-    
-    public function deleteItem(Request $request)
-    {
-        if($request->id) {
-            $cart = session()->get('cart');
-            if(isset($cart[$request->id])) {
-                unset($cart[$request->id]);
-                session()->put('cart', $cart);
-            }
-            session()->flash('success', 'Movie successfully deleted.');
-        }
+    $cartItem = Cart::where('user_id', $userId)
+        ->where('product_id', $productId)
+        ->first();
+
+    if ($cartItem) {
+        // Update quantity if product is already in the cart
+        $cartItem->quantity += $quantity;
+        $cartItem->save();
+    } else {
+        // Add new item to the cart
+        Cart::create([
+            'user_id' => $userId,
+            'product_id' => $productId,
+            'quantity' => $quantity,
+        ]);
     }
+
+    // Calculate the total quantity
+    $totalQuantity = Cart::where('user_id', $userId)->sum('quantity');
+    return response()->json(['message' => 'Cart updated', 'cartCount' => $totalQuantity], 200);
+}
+
+public function deleteItem(Request $request)
+{
+    $userId = auth()->id();
+    $productId = $request->input('id');
+
+    $cartItem = Cart::where('user_id', $userId)
+        ->where('product_id', $productId)
+        ->first();
+
+    if ($cartItem) {
+        $cartItem->delete();
+        session()->flash('success', 'Product successfully deleted.');
+    }
+
+    return redirect()->back();
+}
 }

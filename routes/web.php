@@ -35,10 +35,12 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('/cart', [AdminController::class, 'Cart']);
-Route::get('add_cart/{id}', [homeController::class,'add_cart'])->middleware(['auth','verified']);
-Route::post('add-to-cart', [AdminController::class, 'addToCart'])->name('products.addToCart');
-Route::delete('/delete-cart-item', [AdminController::class, 'deleteItem'])->name('delete.cart.item');
+Route::group(['middleware' => ['auth']], function() {
+    Route::get('/cart', [AdminController::class, 'Cart'])->name('cart');
+    Route::post('/add-to-cart', [AdminController::class, 'addToCart'])->name('add.to.cart');
+    Route::delete('/delete-cart-item', [AdminController::class, 'deleteItem'])->name('delete.cart.item');
+});
+
 
 
 require __DIR__.'/auth.php';
