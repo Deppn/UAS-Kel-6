@@ -150,7 +150,7 @@ class AdminController extends Controller
                 unset($cart[$request->id]);
                 session()->put('cart', $cart);
             }
-            session()->flash('success', 'Movie successfully deleted.');
+            session()->flash('success', 'Product successfully deleted.');
         }
     }
 }

@@ -6,13 +6,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\homeController;
 use App\Http\Controllers\Admin\AdminController;
 
-Route::get('/', function () {
-    return view('home');
-});
+Route::get('/', [homeController::class, 'index']);
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+Route::get('/dashboard', [homeController::class, 'login_home'])->middleware(['auth','verified'])->name('dashboard');
 
 Route::middleware(['auth'])->group(function () {
     Route::controller(DashboardController::class)->group(function () {
