@@ -4,8 +4,6 @@
     <h1>Add Product</h1>
     <form action="{{ route('products.store') }}" method="POST">
         @csrf
-        <label for="image">Product Image</label>
-        <input type="file" name="image" class="form-control" id="image">
         <label>Name</label>
         <input type="text" name="name" required>
         <label>Description</label>
@@ -14,6 +12,8 @@
         <input type="number" name="price" step="0.01" required>
         <label>Stock</label>
         <input type="number" name="stock" required>
+        <label for="image">Product Image</label>
+        <input type="file" name="image" class="form-control" id="image">
         <button type="submit">Add Product</button>
     </form>
 @endsection
