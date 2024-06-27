@@ -16,8 +16,12 @@ class homeController extends Controller
     {
         $products = Product::all(); // Fetch all products from the database
         $user = Auth::user();
-        $userid = $user->id;
-        $count = Cart::where('user_id', $userid)->count();
+        if ($user) {
+            $userid = $user->id;
+            $count = Cart::where('user_id', $userid)->count();
+        } else {
+            $count = 0;
+        }
         return view('home.index', compact('products', 'count')); // Pass the products to the view
     }
     
@@ -25,8 +29,12 @@ class homeController extends Controller
     {
         $products = Product::all(); // Fetch all products from the database
         $user = Auth::user();
-        $userid = $user->id;
-        $count = Cart::where('user_id', $userid)->count();
+        if ($user) {
+            $userid = $user->id;
+            $count = Cart::where('user_id', $userid)->count();
+        } else {
+            $count = 0;
+        }
         return view('home.index', compact('products', 'count')); // Pass the products to the view
     }
 

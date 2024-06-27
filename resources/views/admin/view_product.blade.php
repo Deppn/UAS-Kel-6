@@ -47,6 +47,7 @@
                         <th>Price</th>   
                         <th>Quantity</th>
                         <th>Image</th>
+                        <th>Edit</th>
                         <th>delete</th>                     
                     </tr>
                     @foreach($product as $products)
