@@ -2,8 +2,6 @@
 <html>
   <head> 
    @include('admin.css')
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.min.js" 
-      integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <style type= "text/css">
      .div_deg
      {
@@ -49,7 +47,7 @@
                         <th>Image</th>
                         <th>delete</th>                     
                     </tr>
-                    @foreach($product as $products)
+                    @foreach($product as  $products)
                     <tr>
                         <td>{{$products->title}}</td>
 
@@ -69,13 +67,9 @@
                      </td>
                     </tr> 
                     @endforeach
-                  </table>
-               
-                   
-             </div> 
-             <div class = "div_deg">
-             {{$product->links()}} 
 
+                    
+             </div>            
             </div>  
         </div>
     </div>
