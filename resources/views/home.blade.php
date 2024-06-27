@@ -27,16 +27,17 @@
                         <input class="form-control me-2 icon-rtl" type="search" value placeholder="Search" aria-label="Search">
                         <div class="d-flex align-items-center ms-3">
                             <i class="bi bi-person-fill"></i>
-                            <li class="nav-item"><a class="nav-link" href="login">Login</a></li>
-                            <li class="nav-item"><a class="nav-link" href="register">Register</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/login">Login</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/register">Register</a></li>
                         </div>
                     </ul>
-                    <form class="d-inline-flex ms-3" action="{{ url('carts') }}" method="get">
+                    <form class="d-inline-flex ms-3" action="/cart" method="get">
                         <button class="btn btn-outline-purple px-3" type="submit">
                             <i class="bi-cart-fill me-1"></i>
                             Cart
                         </button>
                     </form>
+
                 </div>
             </div>
         </nav>
