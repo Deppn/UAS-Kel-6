@@ -26,6 +26,8 @@ Route::get('add_product', [AdminController::class, 'add_product'])->name('add_pr
 Route::post('upload_product', [AdminController::class, 'upload_product'])->name('upload_product');
 Route::get('view_product', [AdminController::class, 'view_product'])->name('view_product');
 Route::get('delete_product/{id}', [AdminController::class, 'delete_product'])->name('delete_product');
+Route::get('update_product/{id}', [AdminController::class, 'update_product'])->name('update_product');
+Route::post('edit_product/{id}', [AdminController::class, 'edit_product'])->name('edit_product');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
