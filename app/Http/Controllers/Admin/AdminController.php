@@ -99,4 +99,58 @@ class AdminController extends Controller
 
         return redirect()->back();
     }
+    public function Cart()
+    {
+        return view('cart');
+    }
+    public function addToCart(Request $request)
+    {
+        $productId = $request->input('product_id');
+        $quantity = $request->input('quantity', 1);
+        $cartItemId = $request->input('cart_item_id');
+
+        $product = Product::find($productId);
+
+        if (!$product) {
+            return response()->json(['error' => 'Product not found'], 404);
+        }
+
+        $cart = session()->get('cart', []);
+
+        if (isset($cart[$productId])) {
+            // Update quantity if product is already in the cart
+            $cart[$productId]['quantity'] += $quantity;
+        } else {
+            // Add new item to the cart
+            $cart[$productId] = [
+                'id' => $product->id,
+                'name' => $product->name,
+                'price' => $product->price,
+                'quantity' => $quantity,
+                'poster' => $product->poster,
+            ];
+        }
+
+        session()->put('cart', $cart);
+
+        // Calculate the total quantity
+        $totalQuantity = 0;
+        foreach ($cart as $item) {
+            $totalQuantity += $item['quantity'];
+        }
+        return response()->json(['message' => 'Cart updated', 'cartCount' => $totalQuantity], 200);
+    }
+
+    
+    public function deleteItem(Request $request)
+    {
+        if($request->id) {
+            $cart = session()->get('cart');
+            if(isset($cart[$request->id])) {
+                unset($cart[$request->id]);
+                session()->put('cart', $cart);
+            }
+            session()->flash('success', 'Movie successfully deleted.');
+        }
+    }
 }
