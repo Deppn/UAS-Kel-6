@@ -14,6 +14,7 @@
                 <li class="active"><a href="index.html"> <i class="icon-home"></i>Home </a></li>
                 <li><a href="{{url('view_category')}}"> <i class="icon-grid"></i>category </a></li>
                 <li><a href="{{url('add_product')}}"> <i class="icon-grid"></i>product </a></li>
+                <li><a href="{{url('view_product')}}"> <i class="icon-grid"></i>view_product </a></li>
                   </ul>
                 </li>
               
